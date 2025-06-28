@@ -1,4 +1,4 @@
-/* Base styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -31,7 +31,7 @@ body {
     width: 100%;
 }
 
-/* Neon text effect */
+
 .neon-text {
     color: #fff;
     text-shadow:
@@ -47,7 +47,6 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Flickering animation */
 .flicker {
     animation: flicker 1.5s infinite alternate;
 }
@@ -69,7 +68,6 @@ body {
     }
 }
 
-/* Neon buttons */
 .neon-button {
     background-color: transparent;
     border: 0.2rem solid #fff;
@@ -96,13 +94,13 @@ body {
     text-shadow: none;
 }
 
-/* Add this at the top of your style.css */
 :root {
-    --container-size: 800px;
-    --grid-line: 1px;
+  --container-size: 800px;
+  --neon-color: #0fa;
+  --bg-color: #0a0a1a;
+  --grid-line: 1px;
 }
 
-/* Update your container styles */
 #container {
     display: flex;
     flex-wrap: wrap;
@@ -112,20 +110,18 @@ body {
     border: 2px solid #0fa;
     box-shadow: 0 0 10px #0fa, 0 0 20px rgba(0, 255, 170, 0.5);
     background-color: rgba(0, 20, 15, 0.3);
-    box-sizing: border-box; /* Crucial! */
+    box-sizing: border-box; 
 }
 
-/* Update grid square styles */
 .grid-square {
     box-sizing: border-box;
     background-color: rgba(0, 10, 8, 0.1);
     transition: all 0.1s ease;
-    border: var(--grid-line) solid rgba(0, 255, 170, 0.1); /* Subtle grid lines */
-    margin: 0; /* Remove any default margins */
-    padding: 0; /* Remove any default padding */
+    border: var(--grid-line) solid rgba(0, 255, 170, 0.1); 
+    margin: 0; 
+    padding: 0; 
 }
 
-/* Responsive design */
 @media (max-width: 900px) {
     #container {
         width: 90vw;
