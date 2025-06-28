@@ -48,6 +48,9 @@ git clone https://github.com/SaiAmirthesh/neon-sketchpad.git
 cd neon-sketchpad
 open index.html
 ```
+## 🔗 Live Link
+
+https://saiamirthesh.github.io/Etch-a-sketch/
 
 ## 🤝 Contributing
 
