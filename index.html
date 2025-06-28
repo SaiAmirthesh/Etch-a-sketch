@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sketchpad</title>
+    <title>Neon Sketchpad</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>Sketchpad</h1>
-        <button id="grid-size-btn">Change Grid Size</button>
+    <div class="neon-wrapper">
+        <div class="header">
+            <h1 class="neon-text flicker">NEON SKETCHPAD</h1>
+            <button id="grid-size-btn" class="neon-button">CHANGE GRID SIZE</button>
+            <button id="color-mode-btn" class="neon-button">TOGGLE COLOR MODE</button>
+            <button id="clear-btn" class="neon-button">CLEAR GRID</button>
+        </div>
+        <div id="container"></div>
     </div>
-    <div id="container"></div>
     <script src="script.js"></script>
 </body>
 </html>

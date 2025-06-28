@@ -1,65 +1,143 @@
-*{
-    box-sizing: border-box;
+/* Base styles */
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin : 0;
-    padding: 20px;
-
+body {
+    background-color: #0a0a1a;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
 }
 
-h1{
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}   
-
+.neon-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .header {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
-button{
-    padding: 10px 20px;
-    font-size: 16px;
+/* Neon text effect */
+.neon-text {
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #0fa,
+        0 0 82px #0fa,
+        0 0 92px #0fa,
+        0 0 102px #0fa,
+        0 0 151px #0fa;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Flickering animation */
+.flicker {
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px #0fa,
+            0 0 80px #0fa,
+            0 0 90px #0fa,
+            0 0 100px #0fa,
+            0 0 150px #0fa;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+/* Neon buttons */
+.neon-button {
+    background-color: transparent;
+    border: 0.2rem solid #fff;
+    border-radius: 0;
+    color: #fff;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    margin: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: #45a049;
-}   
-
-button:active {
-    background-color: #3e8e41;
+.neon-button:hover {
+    color: #0a0a1a;
+    background-color: #fff;
+    box-shadow:
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #0fa,
+        0 0 80px #0fa;
+    text-shadow: none;
 }
 
+/* Add this at the top of your style.css */
+:root {
+    --container-size: 800px;
+    --grid-line: 1px;
+}
+
+/* Update your container styles */
 #container {
     display: flex;
     flex-wrap: wrap;
-    width: 960px;
-    height: 960px;
-    margin: 0 auto;
-    border: 0px solid #ccc;
-    box-sizing: border-box; 
+    width: var(--container-size);
+    height: var(--container-size);
+    margin: 1rem auto;
+    border: 2px solid #0fa;
+    box-shadow: 0 0 10px #0fa, 0 0 20px rgba(0, 255, 170, 0.5);
+    background-color: rgba(0, 20, 15, 0.3);
+    box-sizing: border-box; /* Crucial! */
 }
 
+/* Update grid square styles */
 .grid-square {
     box-sizing: border-box;
-    border: 1px solid #eee;
-    background-color: white;
-    margin: 0; 
-    padding: 0; 
+    background-color: rgba(0, 10, 8, 0.1);
+    transition: all 0.1s ease;
+    border: var(--grid-line) solid rgba(0, 255, 170, 0.1); /* Subtle grid lines */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
 }
 
-
-.grid-square:hover {
-    background-color: #333;
+/* Responsive design */
+@media (max-width: 900px) {
+    #container {
+        width: 90vw;
+        height: 90vw;
+    }
+    
+    .neon-text {
+        font-size: 1.8rem;
+    }
+    
+    .neon-button {
+        font-size: 0.6rem;
+        padding: 0.6rem 0.8rem;
+    }
 }
