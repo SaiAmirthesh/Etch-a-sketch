@@ -1,37 +1,28 @@
-// Initialize variables
 let currentSize = 16;
 let isRainbowMode = false;
 let isDarkeningMode = false;
 
-// Initialize the grid
 createGrid(currentSize);
 
-// Button event listeners
 document.getElementById('grid-size-btn').addEventListener('click', changeGridSize);
 document.getElementById('color-mode-btn').addEventListener('click', toggleColorMode);
 document.getElementById('clear-btn').addEventListener('click', clearGrid);
 
-// Grid creation function
 function createGrid(size) {
     const container = document.getElementById('container');
     container.innerHTML = '';
     
-    // Calculate exact size accounting for container borders
-    const containerSize = 800; // Matches CSS --container-size
+    const containerSize = 800; 
     const totalGridLines = size - 1;
-    const totalGridLineSpace = totalGridLines * 1; // 1px grid line per gap
-    
-    // Calculate perfect square size
+    const totalGridLineSpace = totalGridLines * 1;     
     const squareSize = (containerSize - totalGridLineSpace) / size;
     
-    // Create grid
     for (let i = 0; i < size * size; i++) {
         const square = document.createElement('div');
         square.classList.add('grid-square');
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
         
-        // Add hover effect
         square.addEventListener('mouseover', function() {
             if (isRainbowMode) {
                 const r = Math.floor(Math.random() * 256);
@@ -54,7 +45,6 @@ function createGrid(size) {
     }
 }
 
-// Square coloring function
 function colorSquare(e) {
     if (isRainbowMode) {
         const r = Math.floor(Math.random() * 256);
@@ -75,7 +65,6 @@ function colorSquare(e) {
     }
 }
 
-// Change grid size function
 function changeGridSize() {
     let size = prompt('Enter number of squares per side (max 64):', currentSize);
     size = parseInt(size);
@@ -88,7 +77,6 @@ function changeGridSize() {
     }
 }
 
-// Toggle color mode function
 function toggleColorMode() {
     isRainbowMode = !isRainbowMode;
     this.textContent = isRainbowMode ? 'RAINBOW MODE' : 'SINGLE COLOR';
@@ -96,7 +84,6 @@ function toggleColorMode() {
     this.style.borderColor = isRainbowMode ? '#ff00ff' : '#fff';
 }
 
-// Clear grid function
 function clearGrid() {
     const squares = document.querySelectorAll('.grid-square');
     squares.forEach(square => {
@@ -105,7 +92,6 @@ function clearGrid() {
         square.style.opacity = '';
     });
     
-    // Add a quick flash effect
     const container = document.getElementById('container');
     container.style.boxShadow = '0 0 30px #fff';
     setTimeout(() => {
